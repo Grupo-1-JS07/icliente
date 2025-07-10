@@ -40,7 +40,7 @@ export class AuthService {
     );
 
     if (!buscaUsuario)
-      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
+      throw new HttpException('Usuário e/ou senha incorretos!', HttpStatus.NOT_FOUND);
 
     return {
       id: buscaUsuario.id,

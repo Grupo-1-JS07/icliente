@@ -1,6 +1,7 @@
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { Produto } from '../../produto/entities/produto.entity';
 
 @Entity({ name: 'tb_usuarios' })
 export class Usuario {
@@ -29,7 +30,7 @@ export class Usuario {
   @ApiProperty()
   foto: string;
 
-  // @ApiProperty()
-  // @OneToMany(() => Postagem, (postagem) => postagem.usuario)
-  // postagem: Postagem[];
+  @ApiProperty()
+  @OneToMany(() => Produto, (produto) => produto.usuario)
+  produto: Produto[];
 }
