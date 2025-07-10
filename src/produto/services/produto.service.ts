@@ -1,4 +1,4 @@
-// import { CategoriaService } from './../../categoria/services/categoria.service';
+import { CategoriaService } from './../../categoria/services/categoria.service';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Produto } from '../entities/produto.entity';
@@ -9,14 +9,14 @@ export class ProdutoService {
   constructor(
     @InjectRepository(Produto)
     private produtoRepository: Repository<Produto>,
-    // private categoriaService: CategoriaService,
+    private categoriaService: CategoriaService,
   ) {}
 
   async findAll(): Promise<Produto[]> {
     return await this.produtoRepository.find({
-      // relations: {
-      //   categoria: true,
-      // },
+      relations: {
+        categoria: true,
+      },
     });
   }
 
@@ -25,7 +25,7 @@ export class ProdutoService {
       where: {
         id,
       },
-      // relations: { categoria: true },
+      relations: { categoria: true },
     });
     if (!produto)
       throw new HttpException('produto não encontrado!', HttpStatus.NOT_FOUND);
@@ -37,17 +37,17 @@ export class ProdutoService {
       where: {
         descricao: ILike(`%${descricao}%`),
       },
-      // relations: { categoria: true },
+      relations: { categoria: true },
     });
   }
   async create(produto: Produto): Promise<Produto> {
-    // await this.categoriaService.findById(produto.categoria.id);
+    await this.categoriaService.findById(produto.categoria.id);
     return await this.produtoRepository.save(produto);
   }
 
   async update(produto: Produto): Promise<Produto> {
     await this.findById(produto.id);
-    // await this.categoriaService.findById(produto.categoria.id);
+    await this.categoriaService.findById(produto.categoria.id);
     return await this.produtoRepository.save(produto);
   }
 
