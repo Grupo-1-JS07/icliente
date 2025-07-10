@@ -22,6 +22,7 @@ export class Produto {
 
   @Column({ default: true })
   disponibilidade: boolean;
+  categoria: any;
 
   // @ManyToOne(() => Categoria, (categoria) => categoria.produto, {
   //   onDelete: 'CASCADE',
