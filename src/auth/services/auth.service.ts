@@ -1,49 +1,54 @@
 import { JwtService } from '@nestjs/jwt';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserService } from '../../user/services/user.service';
-import { Bcrypt } from '../bcript/bcript';
-import { UserLogin } from '../entities/userLogin.entity';
+import { UsuarioService } from './../../usuario/services/usuario.service';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Bcrypt } from '../bcrypt/bcrypt';
+import { UsuarioLogin } from '../entities/usuariologin.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private userService: UserService,
+    private usuarioService: UsuarioService,
     private jwtService: JwtService,
     private bcrypt: Bcrypt,
   ) {}
 
-  async validateUsuario(usuario: string, senha: string): Promise<any> {
-    const UsuarioEncontrado = await this.userService.findByUser(usuario);
+  async validateUser(username: string, password: string): Promise<any> {
+    const buscaUsuario = await this.usuarioService.findByUsuario(username);
 
-    if (!UsuarioEncontrado)
-      throw new UnauthorizedException('Usuário e/ou senha incorretos!');
+    if (!buscaUsuario)
+      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
 
-    const matchPassword = await this.bcrypt.comparePassword(
-      senha,
-      UsuarioEncontrado.password,
+    const matchPassword = await this.bcrypt.compararSenhas(
+      password,
+      buscaUsuario.senha,
     );
 
-    if (UsuarioEncontrado && matchPassword) {
+    if (buscaUsuario && matchPassword) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { senha, ...resposta } = UsuarioEncontrado;
-      return resposta; // retorno não será usado em lugar nenhum, é apenas para seguir as regras de um retorno quando se usa a tipagem de Promise
+      const { senha, ...resposta } = buscaUsuario;
+      return resposta;
     }
 
-    return null; // retorno não será usado em lugar nenhum, é apenas para seguir as regras de um retorno quando se usa a tipagem de Promise
+    return null;
   }
 
-  async login(userLogin: UserLogin) {
-    const payload = { sub: userLogin.user };
+  async login(usuarioLogin: UsuarioLogin) {
+    const payload = { sub: usuarioLogin.usuario };
 
-    const UsuarioEncontrado = await this.userService.findByUser(userLogin.user);
+    const buscaUsuario = await this.usuarioService.findByUsuario(
+      usuarioLogin.usuario,
+    );
+
+    if (!buscaUsuario)
+      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
 
     return {
-      id: UsuarioEncontrado?.id,
-      name: UsuarioEncontrado?.name,
-      user: userLogin.user,
-      senha: '', // retornaremos (mesmo vazio) caso futuramente haja uma tratativa no front
-      photo: UsuarioEncontrado?.photo,
-      token: `Bearer ${this.jwtService.sign(payload)}`, // será tratado no -- a remoção do "Bearer " de forma abstrata, não precisamos fazer na mão
+      id: buscaUsuario.id,
+      nome: buscaUsuario.nome,
+      usuario: usuarioLogin.usuario,
+      senha: '',
+      foto: buscaUsuario.foto,
+      token: `Bearer ${this.jwtService.sign(payload)}`,
     };
   }
 }
