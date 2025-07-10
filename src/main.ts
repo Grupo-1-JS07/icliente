@@ -7,8 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Icliente')
-    .setDescription('Projeto Integrador')
+    .setTitle('ICliente')
+    .setDescription('Projeto Integrador 3 - ICliente')
     .setContact(
       'Grupo 07',
       'https://github.com/Grupo-1-JS07/icliente',

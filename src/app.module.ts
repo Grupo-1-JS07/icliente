@@ -5,16 +5,16 @@ import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { CategoriaModule } from './categoria/categoria.module';
-import { DevService } from './data/services/dev.service';
+//import { DevService } from './data/services/dev.service';
 import { ProdutoModule } from './produto/produto.module';
-// import { ProdService } from './data/services/prod.service';
+import { ProdService } from './data/services/prod.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
-      useClass: DevService, // -> usar em desenvolvimento
-      // useClass: ProdService, //-> usar em produção
+      //useClass: DevService,  //-> usar em desenvolvimento
+      useClass: ProdService, //-> usar em produção
       imports: [ConfigModule],
     }),
     CategoriaModule,
