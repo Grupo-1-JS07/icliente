@@ -5,24 +5,21 @@ import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  private _campoUsuario: string;
-  private _campoSenha: string;
+  private _usernameField: string;
+  private _passwordField: string;
 
   constructor(private readonly authService: AuthService) {
     super();
-    this._campoUsuario = 'usuario';
-    this._campoSenha = 'senha';
+    this._usernameField = 'usuario';
+    this._passwordField = 'senha';
   }
 
   async validate(usuario: string, senha: string): Promise<any> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const usuarioValido = await this.authService.validateUsuario(
-      usuario,
-      senha,
-    );
-    if (!usuarioValido) {
+    const validaUsuario = await this.authService.validateUser(usuario, senha);
+    if (!validaUsuario) {
       throw new UnauthorizedException('Usuário e/ou senha incorretos!');
     }
-    return usuarioValido; // retorno não será usado em lugar nenhum, é apenas para seguir as regras de um retorno quando se usa a tipagem de Promise
+    return validaUsuario;
   }
 }
