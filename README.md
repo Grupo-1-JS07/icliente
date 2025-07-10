@@ -51,14 +51,16 @@ npm run start:dev
 
 <summary id="env"><strong>:pencil: Para que rode normalmente, deve habilitar como desenvolvimento o banco de dados:</strong></summary><br/>
 
-<img width="744" height="700" alt="image" src="https://github.com/user-attachments/assets/5bf6e185-02a0-44dc-95a3-6d4acbdbc2b3" />
+<img width="728" height="819" alt="image" src="https://github.com/user-attachments/assets/e9f967b6-9b7b-4872-872e-7ee80953b364" />
+
 </details>
 
 <details>
   
 <summary id="env"><strong>:pencil: Não se esqueça de alterar as credenciais do seu banco de dados:</strong></summary><br/>
 
-<img width="829" height="630" alt="image" src="https://github.com/user-attachments/assets/66d11cbe-f8ef-4a58-a108-f8d8872ff8d1" />
+<img width="861" height="660" alt="image" src="https://github.com/user-attachments/assets/cbcd4f21-43c3-42a0-9def-fba65c227366" />
+
 </details>
 
 
