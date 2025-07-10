@@ -1,98 +1,122 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀ICliente
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Sistema de gerenciamento de CRM - Gestão de Relacionamento com o Cliente (Customer Relationship Management) desenvolvido com [NestJS](https://nestjs.com/) e [TypeORM](https://typeorm.io/), utilizando banco de dados **MySQL**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 📝 Descrição
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+O **ICliente** é uma API RESTful para controle de usuários, produtos e categorias de uma organização. Permite operações completas de cadastro, consulta, atualização e remoção dessas entidades, além de gerenciar os relacionamentos entre elas.
 
-## Project setup
+---
 
-```bash
-$ npm install
-```
+## ✅ Funcionalidades
 
-## Compile and run the project
+- CRUD completo de **Usuários**
+- CRUD completo de **Produtos** | Com verificação de disponibilidade do produto
+- CRUD completo de **Categorias**
+- Relacionamentos entre usuários, produtos e categorias
+
+---
+
+## 🖱️ Usabilidade
+
+📍 **Acessando o deploy:**
+
+- Clique [aqui](https://bc-invest-api.herokuapp.com/docs) e veja como é simples utilizar.
+
+---
+
+📍 **Acessando o local pelo Swagger:**
+
+Clone o repositório e instale as dependências:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone git@github.com:Grupo-1-JS07/icliente.git
+cd iclient
+npm install
+npm run start:dev
 ```
+> Após rodar a aplicação localmente, você deverá acessar através de:
 
-## Run tests
+- `http://localhost:{porta}/swagger` 
 
-```bash
-# unit tests
-$ npm run test
+> Caso prefira outro cliente, aqui estão algumas sugestões:
 
-# e2e tests
-$ npm run test:e2e
+  :bulb: [HTTPie](https://httpie.io/) | :bulb: [Postman](https://www.postman.com/) | :bulb: [Insomnia](https://insomnia.rest/) | :bulb: [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 
-# test coverage
-$ npm run test:cov
-```
+## 📍 Configurações locais
 
-## Deployment
+<details>
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+<summary id="env"><strong>:pencil: Para que rode normalmente, deve habilitar como desenvolvimento o banco de dados:</strong></summary><br/>
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+<img width="744" height="700" alt="image" src="https://github.com/user-attachments/assets/5bf6e185-02a0-44dc-95a3-6d4acbdbc2b3" />
+</details>
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+<details>
+  
+<summary id="env"><strong>:pencil: Não se esqueça de alterar as credenciais do seu banco de dados:</strong></summary><br/>
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+<img width="829" height="630" alt="image" src="https://github.com/user-attachments/assets/66d11cbe-f8ef-4a58-a108-f8d8872ff8d1" />
+</details>
 
-## Resources
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### ⚙️ Como utilizar as rotas
 
-## Support
+- Para que as rotas sejam consumidas, é necessário que a pessoa usuária faça login.
+- Para fazer login é necessário usar rota `POST /login` preencha com as credenciais e clique em **`Execute`**.
+- A aplicação retornará um **token**.
+- Após o login, o token retornado deve ser inserido em **`Authorize`**. Isso permitirá a autenticação e autorização para todas as rotas protegidas.
+- Depois disso, o token será automaticamente aplicado em todas as requisições. Basta clicar em **`Execute`** nas demais rotas.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 🛠 Tecnologias Utilizadas
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### 🔧 Backend e Framework
 
-## License
+- [NestJS](https://nestjs.com/) — Framework para construção de APIs robustas com TypeScript
+- [TypeORM](https://typeorm.io/) — ORM para gerenciamento de entidades e integração com banco de dados
+- [@nestjs/config](https://docs.nestjs.com/techniques/configuration) — Gerenciamento de variáveis de ambiente
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### 🗃 Banco de Dados
+
+- [MySQL](https://www.mysql.com/) — Banco de dados relacional utilizado em produção
+- [SQLite](https://www.sqlite.org/index.html) — Banco leve utilizado nos testes E2E
+- [mysql2](https://www.npmjs.com/package/mysql2) — Driver de conexão com MySQL
+- [pg](https://www.npmjs.com/package/pg) — Driver PostgreSQL (instalado, mas opcional)
+
+### 🧠 Segurança e Autenticação
+
+- [bcrypt](https://www.npmjs.com/package/bcrypt) — Criptografia de senhas
+- [Passport](https://www.passportjs.org/) — Middleware de autenticação
+- [passport-local](http://www.passportjs.org/packages/passport-local/) — Estratégia de login com usuário e senha
+- [passport-jwt](http://www.passportjs.org/packages/passport-jwt/) — Estratégia de autenticação com JWT
+- [@nestjs/jwt](https://docs.nestjs.com/security/authentication#jwt-functionality) — Integração do JWT com NestJS
+
+### 📦 Validação e Transformação
+
+- [class-validator](https://github.com/typestack/class-validator) — Validação de objetos DTO
+- [class-transformer](https://github.com/typestack/class-transformer) — Transformação automática de objetos
+
+### 🧪 Testes
+
+- [Jest](https://jestjs.io/) — Testes unitários e de integração
+- [Supertest](https://github.com/visionmedia/supertest) — Testes end-to-end com simulação de requisições HTTP
+- [sqlite3](https://www.npmjs.com/package/sqlite3) — Usado para testes E2E com banco em memória
+
+### 📚 Documentação
+
+- [Swagger](https://swagger.io/) via [@nestjs/swagger](https://docs.nestjs.com/openapi/introduction) — Documentação automática da API
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos da [MIT License](LICENSE).
+
+## 📌 Autores
+
+[Brenndha Cabral](https://www.linkedin.com/in/brenndhacabral/) | [Daniel Souza](https://www.linkedin.com/in/daniel-castro-de-souza-602491133/) | [Kannanda Andrade](https://www.linkedin.com/in/nnandak/) | [Monique Ohana](https://www.linkedin.com/in/moniqueohana/) | [Rafael Santanna](https://www.linkedin.com/in/rafael-selles-sant-anna/) | [Sara Silva](https://www.linkedin.com/in/sara-silva-9739b0183/)
