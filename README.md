@@ -23,7 +23,7 @@ O **ICliente** é uma API RESTful para controle de usuários, produtos e categor
 
 📍 **Acessando o deploy:**
 
-- Clique [aqui](https://bc-invest-api.herokuapp.com/docs) e veja como é simples utilizar.
+- Clique [aqui](https://icliente.onrender.com/swagger) e veja como é simples utilizar.
 
 ---
 
