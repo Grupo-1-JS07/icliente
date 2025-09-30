@@ -10,6 +10,6 @@ export class AppController {
   // eslint-disable-next-line @typescript-eslint/require-await
   async redirect(@Res() resposta: any) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    return resposta.redirect('');
+    return resposta.redirect('/swagger');
   }
 }
